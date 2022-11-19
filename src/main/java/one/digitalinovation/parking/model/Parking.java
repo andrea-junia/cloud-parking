@@ -2,13 +2,17 @@ package one.digitalinovation.parking.model;
 
 import java.time.LocalDateTime;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 public class Parking {
     private String id;
     private String license;
     private String state;
     private String model;
     private String color;
+    @JsonFormat(pattern = "dd/MM/yyyy HH:dd")
     private LocalDateTime entryDate;
+    @JsonFormat(pattern = "dd/MM/yyyy HH:dd")
     private LocalDateTime exitDate;
     private Double bill;
 
