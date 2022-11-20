@@ -1,6 +1,5 @@
 package one.digitalinovation.parking.controller;
 
-import java.util.Arrays;
 import java.util.List;
 
 import org.springframework.http.HttpStatus;
@@ -73,7 +72,6 @@ public class ParkingController {
 
     @PostMapping("/{id}/exit")
     public ResponseEntity<ParkingDTO> checkOut(@PathVariable String id) {
-        //TODO verificar se já não esta fechado e lançar exceção
         Parking parking = parkingService.checkOut(id);
         return ResponseEntity.ok(parkingMapper.toParkingDTO(parking));
     }
