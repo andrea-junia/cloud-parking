@@ -9,6 +9,7 @@ import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Service;
 
+import one.digitalinovation.parking.exception.ParkingNotFoundException;
 import one.digitalinovation.parking.model.Parking;
 
 @Service
@@ -29,6 +30,9 @@ public class ParkingService {
     }
 
     public Parking findById(String id) {
+        if (parkingMap.get(id) == null){
+            throw new ParkingNotFoundException(id);
+        }
         return parkingMap.get(id);
     }
 
